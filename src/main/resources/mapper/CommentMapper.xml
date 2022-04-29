@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.blog.dao.CommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.lh.blog.po.Comment">
+            <id property="commentId" column="comment_id" jdbcType="BIGINT"/>
+            <result property="commentContent" column="comment_content" jdbcType="VARCHAR"/>
+            <result property="applaudCount" column="applaud_count" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="auditFlag" column="audit_flag" jdbcType="CHAR"/>
+            <result property="replayId" column="replay_id" jdbcType="INTEGER"/>
+            <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        comment_id,comment_content,applaud_count,
+        create_time,update_time,audit_flag,replay_id,
+        del_flag
+    </sql>
+</mapper>

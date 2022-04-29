@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.blog.dao.LogMapper">
+
+    <resultMap id="BaseResultMap" type="com.lh.blog.po.Log">
+            <id property="logId" column="log_id" jdbcType="INTEGER"/>
+            <result property="logSql" column="log_sql" jdbcType="VARCHAR"/>
+            <result property="logIntroduce" column="log_introduce" jdbcType="VARCHAR"/>
+            <result property="logUser" column="log_user" jdbcType="VARCHAR"/>
+            <result property="logIp" column="log_ip" jdbcType="VARCHAR"/>
+            <result property="logBrowser" column="log_browser" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        log_id,log_sql,log_introduce,
+        log_user,log_ip,log_browser,
+        create_time
+    </sql>
+</mapper>

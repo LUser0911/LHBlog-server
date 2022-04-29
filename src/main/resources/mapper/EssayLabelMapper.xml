@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.blog.dao.EssayLabelMapper">
+
+    <resultMap id="BaseResultMap" type="com.lh.blog.po.EssayLabel">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="essayId" column="essay_id" jdbcType="BIGINT"/>
+            <result property="labelId" column="label_id" jdbcType="BIGINT"/>
+            <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,essay_id,label_id,
+        del_flag
+    </sql>
+
+    <insert id="insertBatch">
+        insert into lh_essay_label (essay_id,label_id) values
+        <foreach collection="labels" item="label" separator=",">
+            (#{essayId},#{label.labelId})
+        </foreach>
+    </insert>
+</mapper>

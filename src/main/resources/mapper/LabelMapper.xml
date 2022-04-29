@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.blog.dao.LabelMapper">
+
+    <resultMap id="BaseResultMap" type="com.lh.blog.po.Label">
+            <id property="labelId" column="label_id" jdbcType="BIGINT"/>
+            <result property="labelName" column="label_name" jdbcType="VARCHAR"/>
+            <result property="labelBackground" column="label_background" jdbcType="VARCHAR"/>
+            <result property="labelColor" column="label_color" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isStored" column="is_stored" jdbcType="CHAR"/>
+            <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        (label_name,label_background,
+        label_color,create_time,update_time,is_stored
+        del_flag)
+    </sql>
+
+    <insert id="insertLabelBatch" parameterType="list">
+        insert into lh_label
+        (label_name,label_background,label_color)
+        values
+        <foreach collection="labels" separator="," item="label" >
+            (#{label.labelName},#{label.labelBackground},#{label.labelColor})
+        </foreach>
+    </insert>
+
+    <select id="queryLabelsByEssayId" resultMap="BaseResultMap">
+        select ll.label_id, ll.label_name,ll.label_background,ll.label_color,
+        ll.create_time,ll.update_time,ll.is_stored,ll.del_flag
+        from
+        lh_label ll
+        left join lh_essay_label lel on ll.label_id = lel.label_id
+        where lel.essay_id = #{essayId}
+    </select>
+
+    <select id="queryLabelNames" resultType="string">
+        select label_name from lh_label
+    </select>
+
+
+</mapper>

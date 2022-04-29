@@ -1,0 +1,42 @@
+#日志级别
+logging:
+  level:
+    com.lh: debug
+
+spring:
+  # mysql配置
+  datasource:
+    username: root
+    password: LH0911
+    url: jdbc:mysql:///lh_blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  # redis
+  redis:
+    host: 127.0.0.1
+    password:
+    database: 0
+    port: 6379
+    # redis连接池
+    lettuce:
+      pool:
+        max-idle: 5
+        max-active: 10
+        min-idle: 1
+        max-wait: 5000ms
+  servlet:
+    multipart:
+      #最大的单个文件上传大小
+      max-file-size: 10MB
+
+# token的过期时间和单位
+token:
+  # unit:minute
+  expireTime: 1440
+  verifyKey: abcdefghijklmnopqrstwvuxyz0978
+  refreshFactor: 0.8
+
+# 自定义内容
+lh:
+  upload-path: E:/images/

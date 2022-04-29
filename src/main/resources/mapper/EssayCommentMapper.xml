@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.blog.dao.EssayCommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.lh.blog.po.EssayComment">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="essayId" column="essay_id" jdbcType="BIGINT"/>
+            <result property="commentId" column="comment_id" jdbcType="BIGINT"/>
+            <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,essay_id,comment_id,
+        del_flag
+    </sql>
+</mapper>

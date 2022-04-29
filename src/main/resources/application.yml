@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: LHBlog
+  profiles:
+    active: dev
+# mp的配置
+mybatis-plus:
+  type-aliases-package: com.lh.blog.po
+  mapper-locations: classpath*:/mapper/*.xml
+
+
+

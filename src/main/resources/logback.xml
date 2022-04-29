@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <property name="log.pattern"
+              value=" %blue(%d{yyyy-MM-dd HH:mm:ss'SSS}) [%thread] %highlight(%-5level) %logger{20} [%method,%line] %msg%n"/>
+    <property name="log.path" value="f:/LHBlog/log"/>
+
+    <!--    配置控制台的输出-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!--   日志文件的输出 -->
+    <!--    <appender name="file" class="ch.qos.logback.core.FileAppender">-->
+    <!--        <file>${log.path}/blog.log</file>-->
+    <!--        <encoder>-->
+    <!--            <pattern>${log.pattern}</pattern>-->
+    <!--        </encoder>-->
+    <!--    </appender>-->
+    <!--    输出文件的滚动策略-->
+<!--    <appender name="time_file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${log.path}/blog-info.log</file>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <filePattern>${log.file}/blog-info%d{yyyyMMddHHmmss}.log</filePattern>-->
+<!--            &lt;!&ndash;            日志文件的最大数量,超过这个数量，就会删除保存的最久的文件&ndash;&gt;-->
+<!--            <maxHistory>20</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>${log.pattern}</encoder>-->
+<!--        &lt;!&ndash;        用来配置接受记录到文件中的日志级别&ndash;&gt;-->
+<!--        <filter class="ch.qos.logback.core.filter.Filter">-->
+<!--            &lt;!&ndash;            日志级别&ndash;&gt;-->
+<!--            <level>INFO</level>-->
+<!--            &lt;!&ndash;            匹配规则：匹配成功则接受ACCEPT，反之不接受DENY&ndash;&gt;-->
+<!--            <onMatch>ACCEPT</onMatch>-->
+<!--            <onMismatch>DENY</onMismatch>-->
+<!--        </filter>-->
+<!--    </appender>-->
+<!--    <appender name="time_file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${log.path}/blog-error.log</file>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <filePattern>${log.file}/blog-error%d{yyyyMMddHHmmss}.log</filePattern>-->
+<!--            &lt;!&ndash;            日志文件的最大数量,超过这个数量，就会删除保存的最久的文件&ndash;&gt;-->
+<!--            <maxHistory>20</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>${log.pattern}</encoder>-->
+<!--        &lt;!&ndash;        用来配置接受记录到文件中的日志级别&ndash;&gt;-->
+<!--        <filter class="ch.qos.logback.core.filter.Filter">-->
+<!--            &lt;!&ndash;            日志级别&ndash;&gt;-->
+<!--            <level>ERROR</level>-->
+<!--            &lt;!&ndash;            匹配规则：匹配成功则接受ACCEPT，反之不接受DENY&ndash;&gt;-->
+<!--            <onMatch>ACCEPT</onMatch>-->
+<!--            <onMismatch>DENY</onMismatch>-->
+<!--        </filter>-->
+<!--    </appender>-->
+
+    <root level="info">
+        <appender-ref ref="console"/>
+    </root>
+<!--    <root level="info">-->
+<!--        <appender-ref ref="time_file_info"/>-->
+<!--        <appender-ref ref="time_file_error"/>-->
+<!--    </root>-->
+</configuration>

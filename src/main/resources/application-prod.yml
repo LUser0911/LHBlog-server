@@ -5,14 +5,14 @@ logging:
 spring:
   # mysql配置
   datasource:
-    username: root
-    password: lH03.04.LoVe
+    username: 
+    password: 
     url: jdbc:mysql:///lh_blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   # redis
   redis:
-    host: 116.205.140.249
+    host: 
     password:
     database: 0
     port: 6379
